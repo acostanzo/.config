@@ -1,0 +1,7 @@
+fish/*
+gh/*
+op/*
+
+!fish/config.fish
+!fish/fish_plugins.fish
+!fish/functions/aliases.fish
