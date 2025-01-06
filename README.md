@@ -10,6 +10,9 @@ For the whole shebang, clone this repo to `~/.config`. (Be sure to backup any ex
 1. Install [Homebrew](https://brew.sh/)
 1. Install brew dependencies `brew bundle --file=~/.config/brew/Brewfile`
 
+### Fish Shell
+Set [fish](https://fishshell.com/docs/current/#default-shell) as your shell.
+
 ### Fisher
 [Fisher](https://github.com/jorgebucaran/fisher) is a plugin manager for [fish shell](https://fishshell.com/)
 
