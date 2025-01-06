@@ -3,5 +3,5 @@ gh/*
 op/*
 
 !fish/config.fish
-!fish/fish_plugins.fish
+!fish/fish_plugins
 !fish/functions/aliases.fish
