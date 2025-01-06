@@ -1,0 +1,7 @@
+alias aliases="nvim ~/.config/fish/functions/aliases.fish"
+alias dots="cd ~/.config"
+alias g="git status"
+alias gco="git checkout"
+alias gpo="git push origin"
+alias ll="eza -al"
+alias vim="nvim"
