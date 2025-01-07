@@ -1,10 +1,10 @@
 *
 
 !bat/
-!bat/*
+!bat/**/*
 
 !brew/
-!brew/*
+!brew/**/*
 
 !fish/
 fish/*
@@ -13,14 +13,14 @@ fish/functions/*
 !fish/functions/aliases
 
 !ghostty/
-!ghostty/*
+!ghostty/**/*
 
 !nvim/
-!nvim/*
+!nvim/**/*
 nvim/lazy-lock.json
 
 !starship/
-!starship/*
+!starship/**/*
 
 !zellij/
-!zellij/*
+!zellij/**/*
