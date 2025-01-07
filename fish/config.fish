@@ -11,3 +11,5 @@ end
 
 source ~/.config/fish/functions/aliases.fish
 starship init fish | source
+
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
