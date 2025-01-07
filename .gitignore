@@ -19,5 +19,8 @@ fish/functions/*
 !nvim/*
 nvim/lazy-lock.json
 
+!starship/
+!starship/*
+
 !zellij/
 !zellij/*
