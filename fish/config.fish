@@ -1,4 +1,5 @@
 set -g fish_key_bindings fish_vi_key_bindings
+set -g -x PIP_REQUIRE_VIRTUALENV true
 
 set -x EDITOR nvim
 set -x GPG_TTY (tty)
