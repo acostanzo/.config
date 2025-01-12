@@ -1,24 +1,168 @@
-# Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Sets user-defined palette
-# Palettes must be defined _after_ this line
-palette = "catppuccin_frappe"
+format = """
+[](peach)\
+[󰄛 ](bg:peach fg:base)\
+[](bg:yellow fg:peach)\
+$directory\
+[](fg:yellow bg:teal)\
+$git_branch\
+$git_status\
+[](fg:teal bg:blue)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$ruby\
+[](fg:blue bg:surface2)\
+$docker_context\
+$conda\
+[](fg:surface2 bg:surface0)\
+$time\
+[ ](fg:surface0)\
+$line_break$character"""
 
-# Starship modules
-[character]
-# Note the use of Catppuccin color 'peach'
-success_symbol = "[[󰄛](green) ❯](peach)"
-error_symbol = "[[󰄛](red) ❯](peach)"
-vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
+palette = 'catppuccin_frappe'
 
-[git_branch]
-style = "bold mauve"
+[os]
+disabled = false
+style = "bg:peach fg:base"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = " "
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[username]
+show_always = true
+style_user = "bg:peach fg:base"
+style_root = "bg:peach fg:base"
+format = '[ $user ]($style)'
 
 [directory]
-truncation_length = 4
-style = "bold lavender"
+style = "fg:base bg:yellow"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol $branch ](fg:base bg:teal)]($style)'
+
+[git_status]
+style = "bg:teal"
+format = '[[($all_status$ahead_behind )](fg:base bg:teal)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[c]
+symbol = " "
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[php]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[java]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[python]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[ruby]
+symbol = ""
+style = "bg:blue"
+format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:surface2"
+format = '[[ $symbol( $context) ](fg:#83a598 bg:surface2)]($style)'
+
+[conda]
+style = "bg:surface2"
+format = '[[ $symbol( $environment) ](fg:#83a598 bg:surface2)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:surface0"
+format = '[[  $time ](fg:text bg:surface0)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:lavendar)'
+vimcmd_replace_symbol = '[](bold fg:lavendar)'
+vimcmd_visual_symbol = '[](bold fg:yellow)'
+
+# 󰄛
+#
 [palettes.catppuccin_frappe]
 rosewater = "#f2d5cf"
 flamingo = "#eebebe"
