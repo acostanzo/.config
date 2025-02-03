@@ -6,9 +6,6 @@ format = """
 [](bg:yellow fg:peach)\
 $directory\
 [](fg:yellow bg:teal)\
-$git_branch\
-$git_status\
-[](fg:teal bg:blue)\
 $c\
 $rust\
 $golang\
@@ -19,11 +16,11 @@ $kotlin\
 $haskell\
 $python\
 $ruby\
-[](fg:blue bg:surface2)\
-$docker_context\
-$conda\
-[](fg:surface2 bg:surface0)\
-$time\
+[](fg:teal bg:blue)\
+$git_branch\
+$git_status\
+[](fg:blue bg:surface0)\
+$cmd_duration\
 [ ](fg:surface0)\
 $line_break$character"""
 
@@ -77,62 +74,62 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol $branch ](fg:base bg:teal)]($style)'
+style = "bg:blue"
+format = '[[ $symbol $branch ](fg:base bg:blue)]($style)'
 
 [git_status]
-style = "bg:teal"
-format = '[[($all_status$ahead_behind )](fg:base bg:teal)]($style)'
+style = "bg:blue"
+format = '[[($all_status$ahead_behind )](fg:base bg:blue)]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [c]
 symbol = " "
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [php]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [java]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [python]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [ruby]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:base bg:blue)]($style)'
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [docker_context]
 symbol = ""
@@ -148,6 +145,11 @@ disabled = false
 time_format = "%R"
 style = "bg:surface0"
 format = '[[  $time ](fg:text bg:surface0)]($style)'
+
+[cmd_duration]
+min_time = 0  # Show command duration only if it exceeds 500 milliseconds
+format = '[[ ⏱ $duration ](bold fg:yellow bg:surface0)]($style)'
+show_milliseconds = true
 
 [line_break]
 disabled = false
