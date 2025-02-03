@@ -10,9 +10,12 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     eval "$(/opt/homebrew/bin/brew shellenv)"
 end
-set -gx PATH ~/.asdf/shims ~/.asdf/bin $PATH
 
 source ~/.config/fish/functions/aliases.fish
 starship init fish | source
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
+
+if functions -q local_config
+    local_config
+end
