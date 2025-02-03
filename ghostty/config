@@ -1,3 +1,4 @@
-keybind = global:cmd+grave_accent=toggle_quick_terminal
 font-size = 18
+keybind = global:cmd+grave_accent=toggle_quick_terminal
 theme = catppuccin-frappe
+window-decoration = false
