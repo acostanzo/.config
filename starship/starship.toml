@@ -20,8 +20,10 @@ $ruby\
 $git_branch\
 $git_status\
 [](fg:blue bg:surface0)\
+$time\
+[](fg:surface0 bg:surface1)\
 $cmd_duration\
-[ ](fg:surface0)\
+[ ](fg:surface1)\
 $line_break$character"""
 
 palette = 'catppuccin_frappe'
@@ -148,7 +150,7 @@ format = '[[  $time ](fg:text bg:surface0)]($style)'
 
 [cmd_duration]
 min_time = 0  # Show command duration only if it exceeds 500 milliseconds
-format = '[[ ⏱ $duration ](bold fg:yellow bg:surface0)]($style)'
+format = '[[ ⏱ $duration ](bold fg:yellow bg:surface1)]($style)'
 show_milliseconds = true
 
 [line_break]
