@@ -178,7 +178,17 @@ return {
       -- date_format = "%Y-%m-%d",
       -- time_format = "%H:%M",
       -- A map for custom variables, the key should be the variable and the value a function
-      -- substitutions = {},
+      substitutions = {
+        today = function()
+          return "[[" .. os.date("%Y-%m-%d") .. "]]"
+        end,
+        tomorrow = function()
+          return "[[" .. os.date("%Y-%m-%d", os.time() + 86400) .. "]]"
+        end,
+        yesterday = function()
+          return "[[" .. os.date("%Y-%m-%d", os.time() - 86400) .. "]]"
+        end,
+      },
     },
 
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
