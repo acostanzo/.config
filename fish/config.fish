@@ -14,8 +14,8 @@ end
 source ~/.config/fish/functions/aliases.fish
 starship init fish | source
 
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-
 if functions -q local_config
     local_config
 end
+
+mise activate fish | source
