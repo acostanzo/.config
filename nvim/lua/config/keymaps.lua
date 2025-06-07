@@ -1,3 +1,41 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+vim.keymap.set("n", "<leader>yP", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.system("pbcopy", path)
+end, { desc = "Copy absolute file path" })
+vim.keymap.set("n", "<leader>yp", function()
+  local path = vim.fn.expand("%")
+  vim.fn.system("pbcopy", path)
+end, { desc = "Copy relative file path" })
+vim.keymap.set("n", "<leader>yL", function()
+  local path = vim.fn.expand("%:p")
+  local line = vim.api.nvim_win_get_cursor(0)[1]
+  vim.fn.setreg("+", path .. ":" .. line)
+end, { desc = "Copy absolute line path" })
+vim.keymap.set("n", "<leader>yl", function()
+  local path = vim.fn.expand("%")
+  local line = vim.api.nvim_win_get_cursor(0)[1]
+  vim.fn.setreg("+", path .. ":" .. line)
+end, { desc = "Copy relative line path" })
+vim.keymap.set("v", "<leader>yL", function()
+  local start_pos = vim.fn.getpos("v")
+  local end_pos = vim.fn.getpos(".")
+  local start_line = math.min(start_pos[2], end_pos[2])
+  local end_line = math.max(start_pos[2], end_pos[2])
+  local path = vim.fn.expand("%:p")
+  local result = path .. ":" .. start_line .. "-" .. end_line
+  vim.fn.setreg("+", result)
+  print("Copied: " .. result)
+end, { desc = "Copy absolute lines path" })
+vim.keymap.set("v", "<leader>yl", function()
+  local start_pos = vim.fn.getpos("v")
+  local end_pos = vim.fn.getpos(".")
+  local start_line = math.min(start_pos[2], end_pos[2])
+  local end_line = math.max(start_pos[2], end_pos[2])
+  local path = vim.fn.expand("%")
+  local result = path .. ":" .. start_line .. "-" .. end_line
+  vim.fn.setreg("+", result)
+  print("Copied: " .. result)
+end, { desc = "Copy absolute lines path" })
