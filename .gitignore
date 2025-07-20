@@ -17,6 +17,9 @@ fish/themes/*
 !ghostty/
 !ghostty/**/*
 
+!mise/
+!mise/**/*
+
 !nvim/
 !nvim/**/*
 nvim/lazy-lock.json
