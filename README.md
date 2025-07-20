@@ -25,5 +25,5 @@ Set [fish](https://fishshell.com/docs/current/#default-shell) as your shell, and
 1. Install tpm `git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"`
 1. Start a tmux session with `tmux`, if you haven't already
 1. Open `.config/tmux/tmux.conf`
-1. Install packages with `prefix + i`
+1. Install packages with `prefix + I`
 1. Reload tmux config with `prefix + R`
