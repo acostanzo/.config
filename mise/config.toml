@@ -1,4 +1,5 @@
 [tools]
+java = "temurin-17"
 node = "latest"
 ruby = "latest"
 
