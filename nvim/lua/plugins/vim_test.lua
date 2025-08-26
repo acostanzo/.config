@@ -57,6 +57,7 @@ return {
         end,
       }
       vim.g["test#strategy"] = "tmux"
+      vim.g["test#javascript#jest#executable"] = "yarn test"
     end,
     keys = {
       { "<leader>tt", "<cmd>TestFile<cr>", desc = "Run file tests" },
