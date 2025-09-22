@@ -17,4 +17,3 @@ vim.keymap.set("v", "<leader>ya", function()
   vim.fn.setreg("+", result)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
 end, { desc = "Yank file path with line range for Claude Code" })
-
