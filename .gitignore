@@ -10,7 +10,8 @@
 fish/*
 !fish/functions
 fish/functions/*
-!fish/functions/aliases
+!fish/functions/aliases.fish
+!fish/functions/jarvis.fish
 !fish/themes
 fish/themes/*
 

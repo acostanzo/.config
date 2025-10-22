@@ -11,9 +11,17 @@ return {
 
     metals_config.settings = {
       showImplicitArguments = true,
-      excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+      excludedPackages = {
+        "akka.actor.typed.javadsl",
+        "com.github.swagger.akka.javadsl",
+      },
       serverVersion = "latest.snapshot",
+      testUserInterface = "Test Explorer",
     }
+
+    metals_config.on_attach = function(client, bufnr)
+      require("metals").setup_dap()
+    end
 
     return metals_config
   end,
