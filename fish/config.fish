@@ -21,3 +21,5 @@ end
 mise activate fish | source
 
 zoxide init fish | source
+
+alias claude="/Users/acostanzo/.claude/local/claude"
