@@ -53,8 +53,6 @@ return {
     opts.options.component_separators = { left = "", right = "" }
 
     -- Rounded outer caps: prepend a left cap to section_a, append a right cap to section_z
-    -- The left cap uses the right-round glyph () as its icon, drawn before section_a
-    -- The right cap uses the left-round glyph () as its icon, drawn after section_z
     opts.sections = opts.sections or {}
 
     -- Left outer cap: insert at start of lualine_a
@@ -93,7 +91,6 @@ return {
       separator = { left = "", right = "" },
       color = function()
         local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = "lualine_a_normal", link = false })
-        -- lualine_z typically uses the same color as lualine_a in most themes
         if ok and hl and hl.bg then
           return { fg = string.format("#%06x", hl.bg), bg = "NONE" }
         end
@@ -105,9 +102,39 @@ return {
     opts.sections.lualine_a = opts.sections.lualine_a or { "mode" }
     table.insert(opts.sections.lualine_a, 1, left_cap)
 
-    -- Append right cap to lualine_z
-    opts.sections.lualine_z = opts.sections.lualine_z or {}
-    table.insert(opts.sections.lualine_z, right_cap)
+    -- Redistribute right side: x=transient activity, y=repo state, z=cursor position
+    -- Pull git diff and lazy updates out of x into y
+    local lazy_updates = nil
+    local git_diff = nil
+    if opts.sections.lualine_x then
+      local new_x = {}
+      for _, comp in ipairs(opts.sections.lualine_x) do
+        if type(comp) == "table" and comp[1] == "diff" then
+          git_diff = comp
+        elseif type(comp) == "table" and comp.cond == require("lazy.status").has_updates then
+          lazy_updates = comp
+        else
+          table.insert(new_x, comp)
+        end
+      end
+      opts.sections.lualine_x = new_x
+    end
+
+    -- y = repo state (lazy updates + git diff)
+    opts.sections.lualine_y = {}
+    if lazy_updates then
+      table.insert(opts.sections.lualine_y, lazy_updates)
+    end
+    if git_diff then
+      table.insert(opts.sections.lualine_y, git_diff)
+    end
+
+    -- z = cursor position (progress + location) + right cap
+    opts.sections.lualine_z = {
+      { "progress", separator = " ", padding = { left = 1, right = 0 } },
+      { "location", padding = { left = 0, right = 1 } },
+      right_cap,
+    }
 
     return opts
   end,
