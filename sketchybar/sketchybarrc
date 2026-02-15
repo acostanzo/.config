@@ -1,0 +1,77 @@
+#!/bin/bash
+
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+
+##### Bar Appearance #####
+sketchybar --bar \
+  position=top \
+  height=37 \
+  blur_radius=30 \
+  color=$TRANSPARENT \
+  margin=0 \
+  y_offset=0 \
+  corner_radius=0 \
+  shadow=off \
+  padding_left=16 \
+  padding_right=16 \
+  notch_width=200 \
+  topmost=window
+
+##### Defaults #####
+default=(
+  padding_left=4
+  padding_right=4
+  icon.font="Hack Nerd Font:Bold:16.0"
+  label.font="Hack Nerd Font:Bold:13.0"
+  icon.color=$TEXT
+  label.color=$TEXT
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+  background.height=28
+  background.corner_radius=10
+)
+sketchybar --default "${default[@]}"
+
+##### Items #####
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+# Right side (first added = rightmost)
+source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/network.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/memory.sh"
+source "$ITEM_DIR/cpu.sh"
+
+##### Bracket Groupings #####
+
+# Left island: workspace indicators
+sketchybar --add bracket spaces_bracket '/space\..*/' \
+           --set spaces_bracket \
+             background.color=$ITEM_BG \
+             background.corner_radius=10 \
+             background.height=28 \
+             background.border_width=1 \
+             background.border_color=$SURFACE1
+
+# Right island: system status
+sketchybar --add bracket status_bracket cpu memory volume network battery clock \
+           --set status_bracket \
+             background.color=$ITEM_BG \
+             background.corner_radius=10 \
+             background.height=28 \
+             background.border_width=1 \
+             background.border_color=$SURFACE1
+
+##### Force all scripts to run #####
+sketchybar --update
+
+# Set initial workspace highlight
+sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE="$(aerospace list-workspaces --focused)"

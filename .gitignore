@@ -1,5 +1,8 @@
 *
 
+!aerospace/
+!aerospace/**/*
+
 !bat/
 !bat/**/*
 
@@ -24,6 +27,9 @@ fish/themes/*
 !nvim/
 !nvim/**/*
 nvim/lazy-lock.json
+
+!sketchybar/
+!sketchybar/**/*
 
 !starship/
 !starship/**/*
