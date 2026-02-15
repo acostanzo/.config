@@ -1,5 +1,11 @@
 *
 
+!.claude/
+!.claude/**/*
+.claude/*.local.*
+
+!CLAUDE.md
+
 !aerospace/
 !aerospace/**/*
 
