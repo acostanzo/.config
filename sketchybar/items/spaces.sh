@@ -10,7 +10,8 @@ for sid in "${SPACE_SIDS[@]}"; do
   sketchybar --add item space.$sid left \
              --set space.$sid \
                icon=$sid \
-               icon.font="Hack Nerd Font:Bold:14.0" \
+               icon.font="JetBrains Mono Nerd Font:Bold:15.0" \
+               icon.y_offset=0 \
                icon.padding_left=8 \
                icon.padding_right=8 \
                icon.color=$OVERLAY0 \

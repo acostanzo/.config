@@ -4,7 +4,7 @@ sketchybar --add item media center \
            --set media \
              icon=$ICON_MEDIA \
              icon.color=$MAUVE \
-             icon.font="Hack Nerd Font:Bold:16.0" \
+             icon.font="JetBrains Mono Nerd Font:Bold:17.0" \
              label.color=$TEXT \
              label.max_chars=40 \
              scroll_texts=on \
