@@ -2,10 +2,10 @@
 
 format = """
 [](peach)\
-[󰄛 ](bg:peach fg:base)\
-[](bg:yellow fg:peach)\
+[ 󰄛 ](bg:peach fg:base)\
+[](bg:yellow fg:peach)\
 $directory\
-[](fg:yellow bg:teal)\
+[](fg:yellow bg:teal)\
 $c\
 $rust\
 $golang\
@@ -16,12 +16,12 @@ $kotlin\
 $haskell\
 $python\
 $ruby\
-[](fg:teal bg:blue)\
+[](fg:teal bg:blue)\
 $git_branch\
 $git_status\
-[](fg:blue bg:surface0)\
+[](fg:blue bg:surface0)\
 $time\
-[](fg:surface0 bg:surface1)\
+[](fg:surface0 bg:surface1)\
 $cmd_duration\
 [ ](fg:surface1)\
 $line_break$character"""
