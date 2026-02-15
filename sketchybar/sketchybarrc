@@ -36,7 +36,7 @@ default=(
   icon.y_offset=-1
   label.y_offset=-1
   background.height=28
-  background.corner_radius=10
+  background.corner_radius=14
 )
 sketchybar --default "${default[@]}"
 
@@ -55,10 +55,10 @@ source "$ITEM_DIR/cpu.sh"
 ##### Bracket Groupings #####
 
 # Left island: workspace indicators
-sketchybar --add bracket spaces_bracket '/space\..*/' \
+sketchybar --add bracket spaces_bracket '/space\.slot\..*/' \
            --set spaces_bracket \
              background.color=$ITEM_BG \
-             background.corner_radius=10 \
+             background.corner_radius=14 \
              background.height=28 \
              background.border_width=1 \
              background.border_color=$SURFACE1
@@ -67,7 +67,7 @@ sketchybar --add bracket spaces_bracket '/space\..*/' \
 sketchybar --add bracket status_bracket cpu memory volume network battery clock \
            --set status_bracket \
              background.color=$ITEM_BG \
-             background.corner_radius=10 \
+             background.corner_radius=14 \
              background.height=28 \
              background.border_width=1 \
              background.border_color=$SURFACE1
