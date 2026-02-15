@@ -1,7 +1,5 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## What This Is
 
 A macOS dotfiles repository cloned to `~/.config`. All configs are managed here and committed directly from this directory.
