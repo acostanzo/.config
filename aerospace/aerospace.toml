@@ -76,7 +76,7 @@ on-mode-changed = ['exec-and-forget sketchybar --trigger aerospace_mode_change']
     inner.vertical =   16
     outer.left =       16
     outer.bottom =     16
-    outer.top =        16
+    outer.top =        [{ monitor."BenQ.*" = 48 }, 16]
     outer.right =      16
 
 # 'main' binding mode declaration
