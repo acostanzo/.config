@@ -73,6 +73,13 @@ sketchybar --add bracket status_bracket cpu memory volume network battery clock 
              background.border_width=1 \
              background.border_color=$SURFACE1
 
+##### Display-adaptive bar height #####
+sketchybar --add item display_helper left \
+           --set display_helper \
+             drawing=off \
+             script="$PLUGIN_DIR/display.sh" \
+           --subscribe display_helper display_change
+
 ##### Force all scripts to run #####
 sketchybar --update
 
