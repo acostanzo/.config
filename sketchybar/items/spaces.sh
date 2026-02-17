@@ -8,8 +8,8 @@ for i in $(seq 0 14); do
   sketchybar --add item space.slot.$i left \
              --set space.slot.$i \
                icon="" \
-               icon.font="JetBrains Mono Nerd Font:Bold:15.0" \
-               icon.y_offset=0 \
+               icon.font="JetBrainsMono Nerd Font:Bold:15.0" \
+               icon.y_offset=1 \
                icon.padding_left=8 \
                icon.padding_right=8 \
                icon.color=$OVERLAY0 \
