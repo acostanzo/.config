@@ -23,6 +23,9 @@ fish/functions/*
 !fish/functions/jarvis.fish
 !fish/themes
 fish/themes/*
+!fish/conf.d
+fish/conf.d/*
+!fish/conf.d/fzf_theme.fish
 
 !ghostty/
 !ghostty/**/*
