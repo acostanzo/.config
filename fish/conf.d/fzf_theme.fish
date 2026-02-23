@@ -10,3 +10,8 @@ set -gx FZF_DEFAULT_OPTS "\
 --color=marker:#babbf1,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
 --color=selected-bg:#51576d \
 --color=border:#737994,label:#c6d0f5"
+
+# Propagate to tmux so popup processes (which run bash, not fish) inherit the theme.
+if test -n "$TMUX"
+    tmux set-environment FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS"
+end
