@@ -78,15 +78,6 @@ else
 fi
 echo ""
 
-# ── Local secrets ─────────────────────────────────
-echo "Local config"
-if [[ -f "$CONFIG_DIR/zsh/.zshenv.local" ]]; then
-  ok "~/.config/zsh/.zshenv.local exists"
-else
-  action "Create ~/.config/zsh/.zshenv.local for machine-local secrets (e.g., KAMAL_REGISTRY_PASSWORD)"
-fi
-echo ""
-
 # ── Summary ───────────────────────────────────────
 if [[ ${#ERRORS[@]} -eq 0 ]]; then
   echo -e "${GREEN}Setup complete!${NC}"

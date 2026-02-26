@@ -33,8 +33,4 @@ After first-time setup:
 
 ## Machine-Local Config
 
-Secrets and machine-specific settings go in `~/.config/zsh/.zshenv.local` (gitignored). Example:
-
-```bash
-export KAMAL_REGISTRY_PASSWORD="..."
-```
+Machine-specific settings can go in `~/.config/zsh/.zshenv.local` (gitignored).
