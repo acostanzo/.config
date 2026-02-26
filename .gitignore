@@ -12,6 +12,9 @@
 !bat/
 !bat/**/*
 
+!bin/
+!bin/**/*
+
 !brew/
 !brew/**/*
 

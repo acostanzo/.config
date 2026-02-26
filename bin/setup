@@ -1,0 +1,105 @@
+#!/bin/bash
+set -euo pipefail
+
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+ok()    { echo -e "  ${GREEN}✓${NC} $1"; }
+action(){ echo -e "  ${YELLOW}→${NC} $1"; }
+fail()  { echo -e "  ${RED}✗${NC} $1"; ERRORS+=("$1"); }
+
+ERRORS=()
+CONFIG_DIR="$HOME/.config"
+
+echo "Setting up dotfiles..."
+echo ""
+
+# ── Homebrew ──────────────────────────────────────
+echo "Homebrew"
+if command -v brew &>/dev/null; then
+  ok "Homebrew installed"
+else
+  action "Installing Homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || fail "Homebrew installation failed"
+fi
+
+if [[ -f "$CONFIG_DIR/brew/Brewfile" ]]; then
+  action "Installing brew packages"
+  brew bundle --file="$CONFIG_DIR/brew/Brewfile" 2>&1 | while read -r line; do
+    echo "    $line"
+  done || fail "Brew bundle failed"
+else
+  fail "Brewfile not found at $CONFIG_DIR/brew/Brewfile"
+fi
+echo ""
+
+# ── Zsh ───────────────────────────────────────────
+echo "Zsh"
+ZSHENV_FILE="$HOME/.zshenv"
+ZSHENV_CONTENT='export ZDOTDIR="$HOME/.config/zsh"
+source "$ZDOTDIR/.zshenv"'
+
+if [[ -f "$ZSHENV_FILE" ]] && grep -q 'ZDOTDIR' "$ZSHENV_FILE"; then
+  ok "~/.zshenv bootstrap exists"
+else
+  action "Creating ~/.zshenv bootstrap"
+  echo "$ZSHENV_CONTENT" > "$ZSHENV_FILE" || fail "Failed to create ~/.zshenv"
+fi
+
+if [[ "$(dscl . -read /Users/$USER UserShell 2>/dev/null | awk '{print $2}')" == "/bin/zsh" ]]; then
+  ok "Default shell is zsh"
+else
+  action "Run 'chsh -s /bin/zsh' to set zsh as default shell"
+fi
+echo ""
+
+# ── Zinit ─────────────────────────────────────────
+echo "Zinit"
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+if [[ -d "$ZINIT_HOME" ]]; then
+  ok "Zinit installed"
+else
+  action "Installing zinit"
+  command mkdir -p "$(dirname "$ZINIT_HOME")"
+  command git clone https://github.com/zdharma-continuum/zinit "$ZINIT_HOME" || fail "Zinit installation failed"
+fi
+echo ""
+
+# ── TPM ───────────────────────────────────────────
+echo "TPM (tmux plugin manager)"
+TPM_DIR="$CONFIG_DIR/tmux/plugins/tpm"
+if [[ -d "$TPM_DIR" ]]; then
+  ok "TPM installed"
+else
+  action "Installing TPM"
+  git clone https://github.com/tmux-plugins/tpm "$TPM_DIR" || fail "TPM installation failed"
+fi
+echo ""
+
+# ── Local secrets ─────────────────────────────────
+echo "Local config"
+if [[ -f "$CONFIG_DIR/zsh/.zshenv.local" ]]; then
+  ok "~/.config/zsh/.zshenv.local exists"
+else
+  action "Create ~/.config/zsh/.zshenv.local for machine-local secrets (e.g., KAMAL_REGISTRY_PASSWORD)"
+fi
+echo ""
+
+# ── Summary ───────────────────────────────────────
+if [[ ${#ERRORS[@]} -eq 0 ]]; then
+  echo -e "${GREEN}Setup complete!${NC}"
+  echo ""
+  echo "Next steps (if first-time setup):"
+  echo "  1. Open a new terminal to load zsh config"
+  echo "  2. Start tmux and press prefix + I to install tmux plugins"
+  echo "  3. Press prefix + R to reload tmux config"
+else
+  echo ""
+  echo -e "${RED}Setup finished with errors:${NC}"
+  for err in "${ERRORS[@]}"; do
+    echo -e "  ${RED}✗${NC} $err"
+  done
+  exit 1
+fi

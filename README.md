@@ -1,29 +1,40 @@
 # Config
-This repo contains the shareable portions of my mac configs. I uses this to maintain a similar development environment on multiple machines. You can use it if you see something you like when we pair.
+
+Dotfiles for my macOS development environment. Synced via Git to maintain a consistent setup across machines.
+
+## What's Included
+
+- **zsh** — Shell config with zinit, vi mode, autosuggestions, syntax highlighting
+- **starship** — Cross-shell prompt with Catppuccin Frappe theme
+- **tmux** — Terminal multiplexer with Catppuccin theme, vim-tmux-navigator, TPM
+- **neovim** — Editor configuration
+- **ghostty** — Terminal emulator
+- **aerospace** — Tiling window manager
+- **sketchybar** — Menu bar
+- **mise** — Runtime version manager (node, python, ruby, java)
+- **bat, eza, fzf, zoxide** — CLI utilities
 
 ## Setup
-For the whole shebang, clone this repo to `~/.config`. (Be sure to backup any existing files and configurations you may already have in your `~/.config` folder)
 
-### Homebrew
-[Homebrew](https://brew.sh/) is a package manager for mac
+Clone to `~/.config` and run the setup script:
 
-1. Install [Homebrew](https://brew.sh/)
-1. Install brew dependencies `brew bundle --file=~/.config/brew/Brewfile`
+```bash
+git clone git@github.com:acostanzo/.config.git ~/.config
+~/.config/bin/setup
+```
 
-### Fish Shell
-Set [fish](https://fishshell.com/docs/current/#default-shell) as your shell, and restart your machine.
+The script is idempotent — run it again anytime to check status or pick up changes.
 
-### Fisher
-[Fisher](https://github.com/jorgebucaran/fisher) is a plugin manager for [fish shell](https://fishshell.com/)
+After first-time setup:
 
-1. Install [Fisher](https://github.com/jorgebucaran/fisher?tab=readme-ov-file#installation)
-1. Install fisher dependencies `fisher update`
+1. Open a new terminal to load the zsh config
+2. Start tmux and press `prefix + I` to install tmux plugins
+3. Press `prefix + R` to reload the tmux config
 
-### TPM
-[TPM](https://github.com/tmux-plugins/tpm) is a package manager for tmux. 
+## Machine-Local Config
 
-1. Install tpm `git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"`
-1. Start a tmux session with `tmux`, if you haven't already
-1. Open `.config/tmux/tmux.conf`
-1. Install packages with `prefix + I`
-1. Reload tmux config with `prefix + R`
+Secrets and machine-specific settings go in `~/.config/zsh/.zshenv.local` (gitignored). Example:
+
+```bash
+export KAMAL_REGISTRY_PASSWORD="..."
+```
