@@ -1,0 +1,13 @@
+export EDITOR="nvim"
+export GPG_TTY=$(tty)
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export XDG_CONFIG_HOME="$HOME/.config"
+export PIP_REQUIRE_VIRTUALENV=true
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Secrets — machine-local file, not committed
+[[ -f "$ZDOTDIR/.zshenv.local" ]] && source "$ZDOTDIR/.zshenv.local"

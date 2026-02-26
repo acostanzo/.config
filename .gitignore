@@ -30,6 +30,11 @@ fish/conf.d/*
 !ghostty/
 !ghostty/**/*
 
+!zsh/
+zsh/*
+!zsh/.zshenv
+!zsh/.zshrc
+
 !mise/
 !mise/**/*
 
