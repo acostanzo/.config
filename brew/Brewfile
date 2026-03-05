@@ -1,3 +1,5 @@
+brew "gcc" if OS.linux?
+
 brew "bat"
 brew "coreutils"
 brew "curl"
