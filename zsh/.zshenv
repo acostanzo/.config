@@ -15,8 +15,10 @@ elif [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# Fall back to xterm-256color if the current TERM isn't in the terminfo database
-if ! infocmp "$TERM" &>/dev/null 2>&1; then
+# Fall back to xterm-256color if the current TERM isn't in the system terminfo database
+# Use /usr/bin/infocmp to avoid Linuxbrew's ncurses (which bundles xterm-ghostty
+# but isn't used by the system's terminal layer)
+if ! /usr/bin/infocmp "$TERM" &>/dev/null 2>&1; then
   export TERM=xterm-256color
 fi
 
