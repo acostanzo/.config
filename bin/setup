@@ -20,7 +20,7 @@ echo ""
 if [[ "$(uname)" == "Linux" ]]; then
   echo "Linux prerequisites"
   action "Installing system packages via apt"
-  sudo apt update && sudo apt install -y zsh git curl build-essential 2>&1 | while read -r line; do
+  sudo apt update && sudo apt install -y zsh git curl build-essential fontconfig 2>&1 | while read -r line; do
     echo "    $line"
   done || fail "apt installation failed"
   echo ""
