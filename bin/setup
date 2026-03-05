@@ -69,7 +69,8 @@ fi
 if [[ "$SHELL" == */zsh ]]; then
   ok "Default shell is zsh"
 else
-  action "Run 'chsh -s \$(which zsh)' to set zsh as default shell"
+  action "Setting default shell to zsh"
+  sudo chsh -s "$(which zsh)" "$USER" || fail "Failed to set default shell"
 fi
 echo ""
 
