@@ -1,6 +1,7 @@
 font-size = 16
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 theme = catppuccin-frappe
+# macOS-only: ignored on other platforms
 macos-titlebar-style = hidden
 window-padding-x = 8
 window-padding-y = 4
