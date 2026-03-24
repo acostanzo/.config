@@ -65,11 +65,10 @@ fi
 
 # FZF keybindings and completion (installed via brew)
 source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" 2>/dev/null
-source "$(brew --prefix)/opt/fzf/shell/completion.zsh" 2>/dev/null
-
 # ── Tool integrations ────────────────────────────
-eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
+eval "$(starship init zsh)"
+eval "$(fzf --zsh)" 2>/dev/null
 eval "$(zoxide init zsh)"
 
 # ── Local config (machine-specific, not committed) ─
