@@ -1,8 +1,24 @@
 [tools]
+# Language runtimes
 java = "temurin-17"
 node = "latest"
 python = "3.11"
 ruby = "latest"
+
+# CLI tools (migrated from brew)
+bat = "latest"
+delta = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+gh = "latest"
+lazygit = "latest"
+overmind = "latest"
+ripgrep = "latest"
+starship = "latest"
+"aqua:peteretelej/tree" = "latest"
+uv = "latest"
+zoxide = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "ruby"]

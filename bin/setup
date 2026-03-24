@@ -53,6 +53,19 @@ else
 fi
 echo ""
 
+# ── Mise ─────────────────────────────────────────
+echo "Mise"
+if command -v mise &>/dev/null; then
+  ok "Mise installed"
+  action "Installing mise-managed tools"
+  mise install 2>&1 | while read -r line; do
+    echo "    $line"
+  done || fail "Mise install failed"
+else
+  fail "Mise not found — brew bundle should have installed it"
+fi
+echo ""
+
 # ── Zsh ───────────────────────────────────────────
 echo "Zsh"
 ZSHENV_FILE="$HOME/.zshenv"
