@@ -7,7 +7,7 @@ sketchybar --add event aerospace_mode_change
 sketchybar --add item aerospace_mode left \
            --set aerospace_mode \
              icon.drawing=off \
-             label.font="JetBrainsMono Nerd Font:ExtraBold:14.0" \
+             label.font="MonaspiceNe Nerd Font:ExtraBold:14.0" \
              label.color=$CRUST \
              label="MAIN" \
              label.padding_left=8 \

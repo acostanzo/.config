@@ -3,7 +3,7 @@
 sketchybar --add item front_app left \
            --set front_app \
              icon.drawing=off \
-             label.font="JetBrainsMono Nerd Font:Bold:14.0" \
+             label.font="MonaspiceNe Nerd Font:Bold:14.0" \
              label.color=$TEXT \
              label.max_chars=30 \
              label.padding_left=8 \

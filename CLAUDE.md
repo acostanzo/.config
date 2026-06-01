@@ -9,7 +9,7 @@ A macOS dotfiles repository cloned to `~/.config`. All configs are managed here 
 Every tool shares a unified aesthetic — changes to one config should maintain consistency with the others:
 
 - **Theme**: Catppuccin Frappe everywhere (tmux, neovim, ghostty, sketchybar, starship, bat)
-- **Font**: JetBrainsMono Nerd Font (installed via Brewfile). **Important**: macOS Core Text registers the family as `JetBrainsMono Nerd Font` (no space between JetBrains and Mono). Using `JetBrains Mono Nerd Font` silently falls back to the system font and ignores weight styles.
+- **Font**: Monaspace Neon Nerd Font (installed via Brewfile cask `font-monaspice-nerd-font` — note the Nerd Fonts spelling "Monasp**i**ce"). **Important**: Nerd Fonts abbreviates the Monaspace variant names, so macOS Core Text registers the family as `MonaspiceNe Nerd Font` (joined "MonaspiceNe", no space). Using `Monaspace Neon Nerd Font` silently falls back to the system font and ignores weight styles. Verify the exact registered name with `ghostty +list-fonts` or `fc-list : family | grep -i monasp`. The other Monaspace variants are `MonaspiceAr` (Argon), `MonaspiceKr` (Krypton), `MonaspiceRn` (Radon), `MonaspiceXe` (Xenon).
 - **UI Style**: Rounded powerline separators (U+E0B4 ``, U+E0B6 ``), pill-shaped elements, capsule corners
 - **Navigation**: Vim keybindings across fish, tmux, aerospace, and neovim
 - **Colors reference**: Frappe base=#303446, mantle=#292c3c, surface_0=#414559, surface_1=#51576d, yellow=#e5c890, blue=#8caaee

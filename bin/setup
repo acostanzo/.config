@@ -114,12 +114,12 @@ echo ""
 if [[ "$(uname)" == "Linux" ]]; then
   echo "Fonts"
   FONT_DIR="$HOME/.local/share/fonts"
-  if [[ -f "$FONT_DIR/JetBrainsMonoNerdFont-Regular.ttf" ]]; then
-    ok "JetBrainsMono Nerd Font installed"
+  if [[ -f "$FONT_DIR/MonaspiceNeNerdFont-Regular.otf" ]]; then
+    ok "Monaspace Neon Nerd Font installed"
   else
-    action "Installing JetBrainsMono Nerd Font"
+    action "Installing Monaspace Neon Nerd Font"
     mkdir -p "$FONT_DIR"
-    curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz \
+    curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.tar.xz \
       | tar -xJ -C "$FONT_DIR" || fail "Font installation failed"
     fc-cache -fv "$FONT_DIR" 2>&1 | while read -r line; do
       echo "    $line"
