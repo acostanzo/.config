@@ -90,15 +90,10 @@ source "$ZDOTDIR/.zshenv"
   continuum, sensible, yank, open, and copycat.
 - Some tmux style changes require `tmux kill-server`, not just a reload.
 
-### Window Manager and Menu Bar
+### Window Manager
 
 - `aerospace/aerospace.toml` defines tiling behavior, gaps, workspaces, vim-style
-  navigation, service mode, and SketchyBar event triggers.
-- `sketchybar/sketchybarrc` builds the top bar.
-- `sketchybar/colors.sh` is the shared Catppuccin Frappe palette.
-- `sketchybar/items/` declares bar items.
-- `sketchybar/plugins/` contains event handlers and must remain executable.
-- AeroSpace workspace and mode changes trigger SketchyBar updates.
+  navigation, and service mode.
 
 ## Design System
 
@@ -128,9 +123,6 @@ brew bundle --file=~/.config/brew/Brewfile
 
 # Install mise-managed tools
 mise install
-
-# Reload SketchyBar
-brew services restart sketchybar
 
 # Reload tmux config from inside tmux
 # prefix + R
@@ -162,10 +154,10 @@ For tmux changes:
 - Use `tmux kill-server` if status styling, separators, or plugin load order
   changed.
 
-For SketchyBar or AeroSpace changes:
+For AeroSpace changes:
 
-- Restart SketchyBar with `brew services restart sketchybar`.
-- Verify workspace changes still update the bar.
+- Reload AeroSpace from its service mode or restart the app.
+- Verify workspace navigation and gaps still behave as expected.
 
 For Neovim changes:
 
@@ -179,8 +171,7 @@ For Neovim changes:
    updates.
 3. Read the relevant tool config before editing.
 4. Make the smallest coherent change.
-5. Preserve executable bits for shell scripts in `sketchybar/`, `bin/`, and
-   plugin helper paths.
+5. Preserve executable bits for shell scripts in `bin/` and plugin helper paths.
 6. Run the narrowest useful validation command.
 7. Summarize changed files, validation performed, and any remaining manual
    reload steps.
@@ -189,4 +180,5 @@ For Neovim changes:
 
 - `README.md`: human overview and setup entry point.
 - `AGENTS.md`: agent operating guide and maintenance rules.
-- `CLAUDE.md`: Claude/Codex-oriented notes, gotchas, and design details.
+- `CLAUDE.md`: thin Claude Code adapter that imports `AGENTS.md` and keeps
+  Claude-specific notes.

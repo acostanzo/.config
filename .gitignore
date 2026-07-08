@@ -36,9 +36,6 @@ zsh/*
 !nvim/**/*
 nvim/lazy-lock.json
 
-!sketchybar/
-!sketchybar/**/*
-
 !starship/
 !starship/**/*
 

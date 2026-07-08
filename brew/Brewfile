@@ -11,9 +11,7 @@ brew "neovim"
 brew "tmux"
 
 if OS.mac?
-  tap "FelixKratz/formulae"
   brew "pinentry-mac"
-  brew "sketchybar"
   cask "1password-cli"
   cask "font-hack-nerd-font"
   cask "font-monaspice-nerd-font"

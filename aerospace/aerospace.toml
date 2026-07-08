@@ -9,10 +9,6 @@ config-version = 2
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
-# Notify sketchybar on workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
-
 # Start AeroSpace at login
 start-at-login = true
 
@@ -53,11 +49,6 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
                          "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
                          "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-# A callback that runs every time binding mode changes
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-on-mode-changed = ['exec-and-forget sketchybar --trigger aerospace_mode_change']
-
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
@@ -76,7 +67,7 @@ on-mode-changed = ['exec-and-forget sketchybar --trigger aerospace_mode_change']
     inner.vertical =   16
     outer.left =       16
     outer.bottom =     16
-    outer.top =        [{ monitor."LG ULTRAWIDE \\(1\\)" = 48 }, { monitor."LG ULTRAWIDE \\(2\\)" = 48 }, { monitor."BenQ.*" = 48 }, 16]
+    outer.top =        16
     outer.right =      16
 
 # 'main' binding mode declaration

@@ -14,7 +14,6 @@ Dotfiles for my macOS development environment. This repo is cloned directly to
 - **Ghostty**: terminal emulator theme, font, padding, and key bindings.
 - **AeroSpace**: tiling window manager with vim-style navigation and workspace
   bindings.
-- **SketchyBar**: menu bar with AeroSpace integration and system status items.
 - **mise**: runtime and CLI tool management for Node, Python, Ruby, Java, and
   common developer tools.
 - **bat**: Catppuccin Frappe syntax highlighting theme.
@@ -53,8 +52,6 @@ brew bundle --file=~/.config/brew/Brewfile
 # Install mise tools
 mise install
 
-# Restart SketchyBar
-brew services restart sketchybar
 ```
 
 ## Repository Conventions
@@ -77,5 +74,5 @@ Use `AGENTS.md` as the operating guide for Codex or other agents working in this
 repo. It documents the active tools, config layout, safety rules, validation
 commands, and update workflow.
 
-`CLAUDE.md` contains additional Claude/Codex-oriented design notes and known
-gotchas, including font naming, Catppuccin details, and SketchyBar/tmux caveats.
+`CLAUDE.md` is a thin Claude Code adapter that imports `AGENTS.md` and keeps
+Claude-specific notes.
