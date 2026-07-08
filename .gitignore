@@ -5,6 +5,8 @@
 .claude/*.local.*
 
 !CLAUDE.md
+!AGENTS.md
+!README.md
 
 !aerospace/
 !aerospace/**/*
