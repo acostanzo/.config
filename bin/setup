@@ -79,6 +79,17 @@ else
   echo "$ZSHENV_CONTENT" > "$ZSHENV_FILE" || fail "Failed to create ~/.zshenv"
 fi
 
+ZPROFILE_FILE="$HOME/.zprofile"
+ZPROFILE_CONTENT='export ZDOTDIR="$HOME/.config/zsh"
+source "$ZDOTDIR/.zprofile"'
+
+if [[ -f "$ZPROFILE_FILE" ]] && grep -q 'ZDOTDIR' "$ZPROFILE_FILE"; then
+  ok "~/.zprofile bootstrap exists"
+else
+  action "Creating ~/.zprofile bootstrap"
+  echo "$ZPROFILE_CONTENT" > "$ZPROFILE_FILE" || fail "Failed to create ~/.zprofile"
+fi
+
 if [[ "$SHELL" == */zsh ]]; then
   ok "Default shell is zsh"
 else
