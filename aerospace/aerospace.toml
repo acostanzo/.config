@@ -53,6 +53,18 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
     if.app-id = 'com.granola.app'
     run = ['layout floating', 'move-node-to-workspace G']
 
+[[on-window-detected]]
+    if.app-id = 'us.zoom.xos'
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.1password.1password'
+    run = ['layout floating']
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
