@@ -27,6 +27,7 @@
 !zsh/
 zsh/*
 !zsh/.zshenv
+!zsh/.zprofile
 !zsh/.zshrc
 
 !mise/

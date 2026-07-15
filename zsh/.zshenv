@@ -4,8 +4,6 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export XDG_CONFIG_HOME="$HOME/.config"
 export PIP_REQUIRE_VIRTUALENV=true
 
-export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
-
 # Homebrew
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -14,6 +12,10 @@ elif [[ -f /usr/local/bin/brew ]]; then
 elif [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+# User-space language and CLI defaults come from mise. Keep its shims ahead of
+# Homebrew and Apple runtimes even in non-interactive shells.
+export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
 
 # Fall back to xterm-256color if the current TERM isn't in the system terminfo database
 # Use /usr/bin/infocmp to avoid Linuxbrew's ncurses (which bundles xterm-ghostty
