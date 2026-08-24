@@ -50,8 +50,9 @@ For a single root file, add an explicit `!filename`.
 - `brew/Brewfile` is the source of truth for system packages, macOS apps, and
   fonts installed by Homebrew.
 - `mise/config.toml` manages language runtimes and user CLI tools.
-- `bin/setup` runs Homebrew bundle, installs mise tools, bootstraps zsh, installs
-  Zinit, and installs tmux TPM.
+- `bin/setup` runs Homebrew bundle, installs mise tools, installs or updates
+  Codex CLI with OpenAI's standalone installer, bootstraps zsh, installs Zinit,
+  and installs tmux TPM.
 
 ### Shell
 

@@ -16,6 +16,7 @@ Dotfiles for my macOS development environment. This repo is cloned directly to
   bindings.
 - **mise**: runtime and CLI tool management for Node, Python, Ruby, Java, and
   common developer tools.
+- **Codex CLI**: installed and updated with OpenAI's standalone installer.
 - **bat**: Catppuccin Frappe syntax highlighting theme.
 - **Homebrew**: package, cask, tap, and font installation through `brew/Brewfile`.
 
@@ -29,7 +30,7 @@ git clone git@github.com:acostanzo/.config.git ~/.config
 ```
 
 The script is intended to be idempotent. Run it again to check setup state,
-install newly added packages, or refresh mise-managed tools.
+install newly added packages, refresh mise-managed tools, or update Codex CLI.
 
 After first-time setup:
 

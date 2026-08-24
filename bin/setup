@@ -66,6 +66,14 @@ else
 fi
 echo ""
 
+# ── Codex CLI ─────────────────────────────────────
+echo "Codex CLI"
+action "Installing or updating Codex CLI"
+curl -fsSL https://chatgpt.com/codex/install.sh | sh 2>&1 | while read -r line; do
+  echo "    $line"
+done || fail "Codex CLI installation failed"
+echo ""
+
 # ── Zsh ───────────────────────────────────────────
 echo "Zsh"
 ZSHENV_FILE="$HOME/.zshenv"
