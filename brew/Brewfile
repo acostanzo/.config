@@ -14,7 +14,7 @@ if OS.mac?
   brew "pinentry-mac"
   cask "1password-cli"
   cask "font-hack-nerd-font"
-  cask "font-monaspice-nerd-font"
+  cask "font-monaspice-nerd-font", args: { force: true }
   cask "ghostty"
-  cask "nikitabobko/tap/aerospace"
+  cask "nikitabobko/tap/aerospace", trusted: true
 end
