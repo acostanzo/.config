@@ -24,6 +24,14 @@
 !ghostty/
 !ghostty/**/*
 
+!herdr/
+!herdr/**/*
+herdr/.plugins.lock
+herdr/*.log
+herdr/plugins/
+herdr/plugins/**/*
+herdr/session.json
+
 !zsh/
 zsh/*
 !zsh/.zshenv
