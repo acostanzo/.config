@@ -25,12 +25,7 @@
 !ghostty/**/*
 
 !herdr/
-!herdr/**/*
-herdr/.plugins.lock
-herdr/*.log
-herdr/plugins/
-herdr/plugins/**/*
-herdr/session.json
+!herdr/config.toml
 
 !zsh/
 zsh/*
