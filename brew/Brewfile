@@ -11,6 +11,10 @@ brew "neovim"
 brew "tmux"
 
 if OS.mac?
+  brew "colima"
+  brew "docker"
+  brew "docker-compose"
+  brew "docker-buildx"
   brew "pinentry-mac"
   cask "1password-cli"
   cask "font-hack-nerd-font"
