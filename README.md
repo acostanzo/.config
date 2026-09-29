@@ -47,8 +47,9 @@ focus moves through editor splits first, then into the neighboring Herdr pane
 at the edge. In a shell or agent pane, the same keys move between Herdr panes.
 Outside Herdr, LazyVim's normal window navigation remains available.
 
-Agent and workspace shortcuts work directly, without the prefix (Alt is Option
-on macOS). Add Shift to use the corresponding workspace action:
+Agent, workspace, and tab shortcuts work directly, without the prefix (Alt is
+Option on macOS). With Ctrl+Alt+Shift held, H/L navigates tabs horizontally and
+J/K navigates workspaces vertically:
 
 | Shortcut | Action |
 | --- | --- |
@@ -56,6 +57,7 @@ on macOS). Add Shift to use the corresponding workspace action:
 | Ctrl+Alt+J / K | Next / previous agent |
 | Ctrl+Alt+Shift+1–9 | Switch workspace by index |
 | Ctrl+Alt+Shift+J / K | Next / previous workspace |
+| Ctrl+Alt+Shift+H / L | Previous / next tab in the current workspace |
 
 Indices follow list order, so they can change when the list changes.
 

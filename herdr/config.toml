@@ -10,6 +10,10 @@ switch_workspace = "ctrl+alt+shift+1..9"
 next_workspace = "ctrl+alt+shift+j"
 previous_workspace = "ctrl+alt+shift+k"
 
+# Horizontal tab navigation within the current workspace.
+previous_tab = "ctrl+alt+shift+h"
+next_tab = "ctrl+alt+shift+l"
+
 # Let the Vim-aware plugin handle these keys before Herdr changes panes.
 focus_pane_left = ""
 focus_pane_down = ""
