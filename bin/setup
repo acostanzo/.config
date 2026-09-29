@@ -66,6 +66,21 @@ else
 fi
 echo ""
 
+# ── Herdr navigation ─────────────────────────────
+echo "Herdr navigation"
+if command -v herdr &>/dev/null; then
+  if herdr plugin list | grep -q -- '^- local.vim-navigator '; then
+    ok "Herdr Vim Navigator installed"
+  else
+    action "Installing Herdr Vim Navigator"
+    herdr plugin install bojackduy/nvim-herdr-navigation/herdr-vim-navigator --yes \
+      || fail "Herdr Vim Navigator installation failed"
+  fi
+else
+  fail "Herdr not found — mise install should have installed it"
+fi
+echo ""
+
 # ── Codex CLI ─────────────────────────────────────
 echo "Codex CLI"
 action "Installing or updating Codex CLI"
@@ -131,6 +146,8 @@ if [[ ${#ERRORS[@]} -eq 0 ]]; then
   echo ""
   echo "Next steps (if first-time setup):"
   echo "  1. Open a new terminal to load zsh config"
+  echo "  2. Open Neovim inside Herdr to install the navigation companion"
+  echo "  3. Run herdr server reload-config if Herdr is already running"
 else
   echo ""
   echo -e "${RED}Setup finished with errors:${NC}"

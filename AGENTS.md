@@ -51,7 +51,8 @@ For a single root file, add an explicit `!filename`.
   fonts installed by Homebrew.
 - `mise/config.toml` manages language runtimes and user CLI tools.
 - `bin/setup` runs Homebrew bundle, installs mise tools, installs or updates
-  Codex CLI with OpenAI's standalone installer, bootstraps zsh, and installs Zinit.
+  Codex CLI with OpenAI's standalone installer, bootstraps zsh, installs Zinit,
+  and installs the Herdr Vim Navigator plugin.
 
 ### Shell
 
@@ -81,6 +82,16 @@ source "$ZDOTDIR/.zshenv"
 - `nvim/lua/config/` contains LazyVim setup, options, keymaps, and autocmds.
 - `nvim/lua/plugins/` contains LazyVim plugin overrides and additions.
 - `nvim/lazy-lock.json` is intentionally ignored.
+
+### Herdr
+
+- `herdr/config.toml` is the only tracked Herdr file; plugins and runtime state
+  remain ignored.
+- `bin/setup` installs `bojackduy/nvim-herdr-navigation/herdr-vim-navigator`.
+- `nvim/lua/plugins/herdr_navigation.lua` loads its Neovim companion inside Herdr.
+- Ctrl+H/J/K/L uses plugin actions, with direct `focus_pane_*` bindings disabled
+  so Neovim normal-mode splits receive navigation first.
+- Reload Herdr with `herdr server reload-config`; restart Neovim for Lua changes.
 
 ### Window Manager
 
@@ -134,6 +145,12 @@ For package/runtime changes:
 - Run `brew bundle check --file=~/.config/brew/Brewfile` when Homebrew is
   available.
 - Run `mise install` after changing `mise/config.toml`.
+
+For Herdr changes:
+
+- Run `herdr server reload-config` and `herdr plugin action list`.
+- Verify Ctrl+H/J/K/L within Neovim splits and across an editor edge into a
+  neighboring Herdr pane.
 
 For AeroSpace changes:
 
