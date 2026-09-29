@@ -8,8 +8,6 @@ Dotfiles for my macOS development environment. This repo is cloned directly to
 - **zsh**: shell config with Zinit, vi mode, autosuggestions, syntax
   highlighting, completions, fzf, mise, starship, and zoxide.
 - **starship**: Catppuccin Frappe prompt with powerline separators.
-- **tmux**: terminal multiplexer with Catppuccin, vim-tmux-navigator, TPM,
-  huckleberry, resurrect, continuum, and related plugins.
 - **Neovim**: LazyVim-based editor configuration.
 - **Ghostty**: terminal emulator theme, font, padding, and key bindings.
 - **AeroSpace**: tiling window manager with vim-style navigation and workspace
@@ -32,11 +30,7 @@ git clone git@github.com:acostanzo/.config.git ~/.config
 The script is intended to be idempotent. Run it again to check setup state,
 install newly added packages, refresh mise-managed tools, or update Codex CLI.
 
-After first-time setup:
-
-1. Open a new terminal to load the zsh config.
-2. Start tmux and press `prefix + I` to install tmux plugins.
-3. Press `prefix + R` to reload the tmux config.
+After first-time setup, open a new terminal to load the zsh config.
 
 ## Day-to-Day Use
 

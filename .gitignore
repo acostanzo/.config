@@ -41,7 +41,3 @@ nvim/lazy-lock.json
 
 !starship/
 !starship/**/*
-
-!tmux/
-tmux/**/*
-!tmux/tmux.conf

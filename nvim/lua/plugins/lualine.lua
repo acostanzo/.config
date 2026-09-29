@@ -47,7 +47,7 @@ return {
     opts.winbar = shared_winbar
     opts.inactive_winbar = shared_winbar
 
-    -- Rounded separators to match tmux pill style
+    -- Rounded separators for capsule status elements
     opts.options = opts.options or {}
     opts.options.section_separators = { left = "", right = "" }
     opts.options.component_separators = { left = "", right = "" }

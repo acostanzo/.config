@@ -51,8 +51,7 @@ For a single root file, add an explicit `!filename`.
   fonts installed by Homebrew.
 - `mise/config.toml` manages language runtimes and user CLI tools.
 - `bin/setup` runs Homebrew bundle, installs mise tools, installs or updates
-  Codex CLI with OpenAI's standalone installer, bootstraps zsh, installs Zinit,
-  and installs tmux TPM.
+  Codex CLI with OpenAI's standalone installer, bootstraps zsh, and installs Zinit.
 
 ### Shell
 
@@ -82,14 +81,6 @@ source "$ZDOTDIR/.zshenv"
 - `nvim/lua/config/` contains LazyVim setup, options, keymaps, and autocmds.
 - `nvim/lua/plugins/` contains LazyVim plugin overrides and additions.
 - `nvim/lazy-lock.json` is intentionally ignored.
-
-### Tmux
-
-- `tmux/tmux.conf` is the only tracked tmux file.
-- TPM plugins are installed under `tmux/plugins/` and ignored.
-- The config uses Catppuccin, vim-tmux-navigator, huckleberry, resurrect,
-  continuum, sensible, yank, open, and copycat.
-- Some tmux style changes require `tmux kill-server`, not just a reload.
 
 ### Window Manager
 
@@ -125,11 +116,6 @@ brew bundle --file=~/.config/brew/Brewfile
 # Install mise-managed tools
 mise install
 
-# Reload tmux config from inside tmux
-# prefix + R
-
-# Full tmux reset for style/separator changes
-tmux kill-server
 ```
 
 ## Validation Checklist
@@ -148,12 +134,6 @@ For package/runtime changes:
 - Run `brew bundle check --file=~/.config/brew/Brewfile` when Homebrew is
   available.
 - Run `mise install` after changing `mise/config.toml`.
-
-For tmux changes:
-
-- Reload with `prefix + R`.
-- Use `tmux kill-server` if status styling, separators, or plugin load order
-  changed.
 
 For AeroSpace changes:
 

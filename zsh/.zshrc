@@ -58,11 +58,6 @@ export FZF_DEFAULT_OPTS="\
 --color=selected-bg:#51576d \
 --color=border:#737994,label:#c6d0f5"
 
-# Propagate to tmux so popups inherit the theme
-if [[ -n "$TMUX" ]]; then
-  tmux set-environment FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS"
-fi
-
 # FZF keybindings and completion (installed via brew)
 source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" 2>/dev/null
 # ── Tool integrations ────────────────────────────

@@ -8,7 +8,6 @@ brew "gnupg"
 brew "libyaml"
 brew "mise"
 brew "neovim"
-brew "tmux"
 
 if OS.mac?
   brew "colima"
